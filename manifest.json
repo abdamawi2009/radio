@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Radio",
+  "description": "Radio",
+  "version": "2",
+    "permissions": ["*","background"],
+    "content_scripts": [
+        {
+         "matches": ["<all_urls>"],
+         "js": ["jquery.js","parse.js","knockout.js","my.js"]
+        }
+    ],  
+    "background_page": "index.html",
+   //"app": {"launch": {"local_path": "index.html" }}, 
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",    
+  "browser_action": {
+    "default_icon": "radio.png",
+    "default_popup": "index.html"
+  }
+}

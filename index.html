@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Radio</title>
+  <link rel="stylesheet" type="text/css" href="my.css">
+    <link rel="stylesheet" type="text/css" href="jquery/jquery.mobile-1.4.3.min.css">
+</head>
+<body class="mybo">
+    
+    
+    <div data-role="page">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Radio</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		
+    <p class="List" data-bind="visible: list().length == 0 ">Loading....</p>
+    <ul data-role="listview" data-bind="foreach: list,visible: list().length > 0 ">
+        <li data-bind="template: {name: temp()}"></li>
+    </ul>
+    
+    <script type="text/html" id="dis">
+         <a data-bind="text: $data.Name, click: $data.cha"></a>
+         <img class="right" src="play.png" data-bind="click: $data.Play"/>
+    </script>    
+    <script type="text/html" id="play">
+         <a data-bind="text: $data.Name, click: $data.cha"></a>
+         <img class="right" src="stop.png" data-bind="click: $data.stop"/>
+    </script>    
+    <script type="text/html" id="edit" class="edit">
+        <input type="text" data-bind="value: $data.Name" class="text">
+        <input type="text" data-bind="value: $data.URl" class="text">
+        <a href="#" class="btn ui-btn-inline" data-bind="click: $data.save" value="Save" data-mini="true">Save</a>
+        <a href="#" class="btn ui-btn-inline" data-bind="click: $data.delete" value="Delete" data-mini="true">Delete</a>
+        <a href="#" class="btn ui-btn-inline" data-bind="click: $data.close" value="Close" data-mini="true">Close</a>
+    </script>        
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" >
+		<h4><a href="#sa"><img src="new.png" data-bind="visible: list().length > 0 " /></a> </h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+    
+    <div data-role="dialog" id="sa">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Add</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">     
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Name" class="text ui-widget-content ui-corner-all">
+        <br>
+        <label for="URL">URL</label>
+        <input type="text" name="URL" id="URL" placeholder="URL" class="text ui-widget-content ui-corner-all">
+        <button id="sav">Save</button>    
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" >
+		<h4></h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+    
+    
+    
+    
+    <script src="jquery.js"></script>
+    <script src="jquery/jquery.mobile-1.4.3.min.js"></script>
+    <script src="parse.js"></script>
+    <script src="knockout.js"></script>
+    <script src="my.js"></script>
+
+    
+</body>
+</html>
